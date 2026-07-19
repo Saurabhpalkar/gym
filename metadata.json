@@ -1,0 +1,6 @@
+{
+  "name": "Iron District",
+  "description": "Premium, high-performance static gym website with a cinematic video slider, interactive photo gallery, and sleek editorial typography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

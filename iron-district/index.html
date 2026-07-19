@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRON DISTRICT — Build Your Strongest Self</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Iron District is a premium high-performance athletic training club and luxury gym designed for those who refuse average results.">
+  <meta property="og:title" content="IRON DISTRICT — Build Your Strongest Self">
+  <meta property="og:description" content="Sleek, premium, high-performance physical culture club. Built with Olympic steel, professional rigs, and active recovery systems.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Bebas Neue & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons (Standalone via CDN) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP & ScrollTrigger (Standalone CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Film Grain atmospheric overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- Custom Cinematic Desktop Cursor -->
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+  <div class="custom-cursor-circle" id="cursorCircle"></div>
+
+  <!-- 1. CINEMATIC PRELOADER -->
+  <div id="preloader" class="preloader-bg">
+    <div class="preloader-top">
+      <span>IRON DISTRICT</span>
+      <span>EST. 2026</span>
+    </div>
+    <div class="preloader-center">
+      <h1 class="preloader-text">
+        IRON <span class="text-stroke-accent">DISTRICT</span>
+      </h1>
+    </div>
+    <div class="preloader-bottom">
+      <span class="tagline">BUILD YOUR STRONGEST SELF.</span>
+      <span class="preloader-count" id="preloaderCount">000%</span>
+    </div>
+  </div>
+
+  <!-- 2. TRANSPARENT PREMIUM NAVBAR -->
+  <nav id="navbar" class="navbar">
+    <a href="#" class="nav-logo">
+      IRON <span class="text-stroke-accent">DISTRICT</span>
+    </a>
+    
+    <div class="nav-links">
+      <a href="#training" class="nav-link-item">TRAINING</a>
+      <a href="#programs" class="nav-link-item">PROGRAMS</a>
+      <a href="#gallery" class="nav-link-item">GALLERY</a>
+      <a href="#coaches" class="nav-link-item">COACHES</a>
+      <a href="#membership" class="nav-link-item">MEMBERSHIP</a>
+      <a href="#contact" class="nav-link-item">CONTACT</a>
+    </div>
+
+    <div class="nav-cta">
+      <a href="#membership" class="btn-primary">JOIN NOW</a>
+    </div>
+
+    <!-- Mobile Menu Hamburger -->
+    <button id="hamburgerBtn" class="hamburger-btn" aria-label="Toggle Navigation Menu">
+      <i data-lucide="menu" id="hamburgerIcon"></i>
+    </button>
+  </nav>
+
+  <!-- Fullscreen Mobile Menu Overlay -->
+  <div id="mobileMenu" class="mobile-menu-overlay">
+    <div class="mobile-menu-links">
+      <a href="#training" class="mobile-menu-link">TRAINING</a>
+      <a href="#programs" class="mobile-menu-link">PROGRAMS</a>
+      <a href="#gallery" class="mobile-menu-link">GALLERY</a>
+      <a href="#coaches" class="mobile-menu-link">COACHES</a>
+      <a href="#membership" class="mobile-menu-link">MEMBERSHIP</a>
+      <a href="#contact" class="mobile-menu-link">CONTACT</a>
+    </div>
+    <div class="mobile-menu-footer">
+      <div class="mobile-footer-info">
+        <span class="info-label">MUMBAI, MH</span>
+        <span class="info-val">MON – SUN: 05AM – 11PM</span>
+      </div>
+      <a href="#membership" class="btn-primary flex-center">JOIN NOW — MEMBERSHIP</a>
+    </div>
+  </div>
+
+  <!-- 3. HERO SECTION: MULTI-VIDEO CINEMATIC SLIDER -->
+  <section id="hero" class="hero-slider">
+    <!-- Active Video Backdrop Container -->
+    <div class="video-backdrops">
+      <!-- Video 1 -->
+      <video class="hero-video active" id="heroVideo1" autoplay muted playsinline preload="metadata" loop
+             poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200">
+        <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c02227d87174ac2a7b73b0d4aa608853&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+      </video>
+      <!-- Video 2 -->
+      <video class="hero-video" id="heroVideo2" muted playsinline preload="metadata" loop
+             poster="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=1200">
+        <source src="https://player.vimeo.com/external/435674703.sd.mp4?s=7fdf1af1a94154fa16b060d402120e58fa266d62&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
+      </video>
+      <!-- Video 3 -->
+      <video class="hero-video" id="heroVideo3" muted playsinline preload="metadata" loop
+             poster="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1200">
+        <source src="https://player.vimeo.com/external/510850877.sd.mp4?s=d0db5d3bc64627ef1cf1613b5ee0ae1a30ff524e&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
+      </video>
+      <!-- Video 4 -->
+      <video class="hero-video" id="heroVideo4" muted playsinline preload="metadata" loop
+             poster="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=1200">
+        <source src="https://player.vimeo.com/external/435675628.sd.mp4?s=6a4574a682ff7b5247c11f75e0be95ffae7594d7&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Active Text Details -->
+    <div class="hero-content-wrapper">
+      <div class="hero-text-container" id="heroTextContainer">
+        <span class="hero-label">01 — STRENGTH</span>
+        <h1 class="hero-title">BUILD YOUR<br>STRONGEST SELF.</h1>
+        <p class="hero-desc">Train with purpose. Move with power. Become impossible to ignore.</p>
+        <div>
+          <a href="#membership" class="btn-primary btn-large">START YOUR JOURNEY</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Controls & Thumbnails Grid -->
+    <div class="hero-controls-bar">
+      <!-- Thumbnail Previews -->
+      <div class="hero-thumbnails">
+        <button class="thumb-btn active" data-index="0">
+          <span class="thumb-num">01</span>
+          <span class="thumb-label">STRENGTH</span>
+        </button>
+        <button class="thumb-btn" data-index="1">
+          <span class="thumb-num">02</span>
+          <span class="thumb-label">PERFORMANCE</span>
+        </button>
+        <button class="thumb-btn" data-index="2">
+          <span class="thumb-num">03</span>
+          <span class="thumb-label">DISCIPLINE</span>
+        </button>
+        <button class="thumb-btn" data-index="3">
+          <span class="thumb-num">04</span>
+          <span class="thumb-label">COMMUNITY</span>
+        </button>
+      </div>
+
+      <!-- Controls Panel -->
+      <div class="controls-panel">
+        <div class="slide-counter">
+          <span class="current-slide" id="currSlideNum">01</span> / <span class="total-slides">04</span>
+        </div>
+        
+        <div class="media-controls">
+          <button class="icon-btn" id="playPauseBtn" aria-label="Play or pause slider">
+            <i data-lucide="pause" id="playPauseIcon"></i>
+          </button>
+          <button class="icon-btn" id="muteBtn" aria-label="Mute or unmute slider">
+            <i data-lucide="volume-x" id="muteIcon"></i>
+          </button>
+        </div>
+
+        <div class="arrow-controls">
+          <button class="icon-btn" id="prevHeroBtn" aria-label="Previous slide">
+            <i data-lucide="chevron-left"></i>
+          </button>
+          <button class="icon-btn" id="nextHeroBtn" aria-label="Next slide">
+            <i data-lucide="chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Video Progress Line -->
+    <div class="hero-progress-container">
+      <div class="hero-progress-bar" id="heroProgressBar"></div>
+    </div>
+  </section>
+
+  <!-- 4. INTRODUCTION SECTION -->
+  <section id="training" class="intro-section">
+    <div class="intro-container">
+      <!-- Left Editorial Column -->
+      <div class="intro-left" id="introText">
+        <div class="sub-label">
+          <span class="indicator"></span>
+          <span class="label-text">THE COLD TRUTH</span>
+        </div>
+        <h2 class="section-heading">
+          NOT JUST A GYM.<br>
+          <span class="text-stroke-accent">A STANDARD.</span>
+        </h2>
+        <p class="intro-desc-text">
+          Iron District is a high-performance training environment designed for people who refuse average results. We combine elite-level coaching, state-of-the-art strength equipment, and a culture of absolute commitment. Here, we build bodies, minds, and standards that endure.
+        </p>
+      </div>
+
+      <!-- Right Stat Grid Column -->
+      <div class="intro-right" id="introStats">
+        <div class="stat-card">
+          <div class="stat-num" data-target="12000">12,000+</div>
+          <div class="stat-label">MEMBERS TRAINED</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-target="48">48</div>
+          <div class="stat-label">WEEKLY CLASSES</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-target="25">25+</div>
+          <div class="stat-label">ELITE COACHES</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-target="7">7 DAYS</div>
+          <div class="stat-label">OPEN EVERY WEEK</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. TRAINING PROGRAMS -->
+  <section id="programs" class="programs-section">
+    <div class="programs-header flex-between">
+      <div class="header-left">
+        <div class="sub-label">
+          <span class="indicator"></span>
+          <span class="label-text">OUR BLUEPRINT</span>
+        </div>
+        <h2 class="section-heading">TRAIN WITH <span class="text-stroke-accent text-accent">PURPOSE.</span></h2>
+      </div>
+      <p class="header-desc">
+        Choose your specialization. Every program at Iron District is curated by world-class trainers and backed by rigorous sports science.
+      </p>
+    </div>
+
+    <div class="programs-grid" id="programsGrid">
+      <!-- Program 1 -->
+      <div class="program-panel">
+        <div class="panel-bg">
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800" alt="Strength training background">
+        </div>
+        <div class="panel-overlay"></div>
+        <div class="panel-top">
+          <span class="panel-num">01</span>
+          <span class="panel-arrow"><i data-lucide="arrow-up-right"></i></span>
+        </div>
+        <div class="panel-bottom">
+          <h3 class="panel-title">STRENGTH</h3>
+          <p class="panel-desc">Build heavy power, dense muscle mass, and unshakable athletic confidence.</p>
+          <div class="panel-accent-bar"></div>
+        </div>
+      </div>
+
+      <!-- Program 2 -->
+      <div class="program-panel">
+        <div class="panel-bg">
+          <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&q=80&w=800" alt="Conditioning training background">
+        </div>
+        <div class="panel-overlay"></div>
+        <div class="panel-top">
+          <span class="panel-num">02</span>
+          <span class="panel-arrow"><i data-lucide="arrow-up-right"></i></span>
+        </div>
+        <div class="panel-bottom">
+          <h3 class="panel-title">CONDITIONING</h3>
+          <p class="panel-desc">Push cardiovascular thresholds, ignite your metabolism, and build endurance.</p>
+          <div class="panel-accent-bar"></div>
+        </div>
+      </div>
+
+      <!-- Program 3 -->
+      <div class="program-panel">
+        <div class="panel-bg">
+          <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800" alt="Athletic performance background">
+        </div>
+        <div class="panel-overlay"></div>
+        <div class="panel-top">
+          <span class="panel-num">03</span>
+          <span class="panel-arrow"><i data-lucide="arrow-up-right"></i></span>
+        </div>
+        <div class="panel-bottom">
+          <h3 class="panel-title">ATHLETIC PERFORMANCE</h3>
+          <p class="panel-desc">Move faster, react instantly, jump higher, and perform at the absolute peak.</p>
+          <div class="panel-accent-bar"></div>
+        </div>
+      </div>
+
+      <!-- Program 4 -->
+      <div class="program-panel">
+        <div class="panel-bg">
+          <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?auto=format&fit=crop&q=80&w=800" alt="Personal training background">
+        </div>
+        <div class="panel-overlay"></div>
+        <div class="panel-top">
+          <span class="panel-num">04</span>
+          <span class="panel-arrow"><i data-lucide="arrow-up-right"></i></span>
+        </div>
+        <div class="panel-bottom">
+          <h3 class="panel-title">PERSONAL TRAINING</h3>
+          <p class="panel-desc">Get fully personalized programs, custom biomechanical reviews, and strict accountability.</p>
+          <div class="panel-accent-bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. GYM EXPERIENCE SECTION -->
+  <section class="experience-section">
+    <div class="experience-header text-center max-width-2xl">
+      <div class="sub-label flex-center">
+        <span class="indicator"></span>
+        <span class="label-text">THE ENVIRONMENT</span>
+      </div>
+      <h2 class="section-heading uppercase text-center" id="expHeading">
+        BUILT FOR THE <br>
+        <span class="text-accent text-stroke-accent">OBSESSED.</span>
+      </h2>
+      <p class="header-desc text-center margin-center">
+        A physical manifestation of dedication. Premium Olympic steel, dedicated fight rigs, active recovery suites, and an atmosphere forged in sweat and steel.
+      </p>
+    </div>
+
+    <!-- Editorial Asymmetrical Layout Grid -->
+    <div class="experience-layout">
+      <!-- Big Portrait Frame Left -->
+      <div class="exp-left-column">
+        <div class="exp-img-card h-large" id="expCard1">
+          <img src="https://images.unsplash.com/photo-1605296867304-46d5465a25f1?auto=format&fit=crop&q=80&w=1200" alt="Powerlifting platform and plates">
+          <div class="card-gradient"></div>
+          <div class="card-details">
+            <span class="card-tag">01 — STRENGTH RIGS</span>
+            <h3 class="card-title">ELEIKO PLATFORMS</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medium Landscape Frame Right -->
+      <div class="exp-right-column">
+        <div class="exp-img-card h-medium" id="expCard2">
+          <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&q=80&w=800" alt="Boxing training session">
+          <div class="card-gradient"></div>
+          <div class="card-details">
+            <span class="card-tag">02 — BOXING RING</span>
+            <h3 class="card-title">FIGHT PROTOCOLS</h3>
+          </div>
+        </div>
+
+        <!-- Static Magazine Text Block -->
+        <div class="editorial-quote-box">
+          <span class="editorial-label">THE MAG SPEC</span>
+          <p class="editorial-text">
+            "We don't do commercial gimmicks. We don't have endless rows of smart televisions or soft lounge seating. Every square centimeter of Iron District is designed to optimize physical performance and mental resilience."
+          </p>
+          <div class="editorial-author">— CARTER, DIRECTOR OF PERFORMANCE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secondary 3-Column Visual Grid -->
+    <div class="experience-three-grid">
+      <div class="exp-img-card h-small" id="expCard3">
+        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800" alt="Battle ropes and equipment">
+        <div class="card-gradient"></div>
+        <div class="card-details">
+          <span class="card-tag">03 — FUNCTIONAL</span>
+          <h3 class="card-title">BATTLE ZONES</h3>
+        </div>
+      </div>
+
+      <div class="exp-img-card h-small" id="expCard4">
+        <img src="https://images.unsplash.com/photo-1540539234-c14a20fb7c7b?auto=format&fit=crop&q=80&w=800" alt="Dumbbell racks and mirrors">
+        <div class="card-gradient"></div>
+        <div class="card-details">
+          <span class="card-tag">04 — INTERIORS</span>
+          <h3 class="card-title">SILENT STRENGTH</h3>
+        </div>
+      </div>
+
+      <div class="exp-img-card h-small" id="expCard5">
+        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=800" alt="Cold plunge recovery basin">
+        <div class="card-gradient"></div>
+        <div class="card-details">
+          <span class="card-tag">05 — RECOVERY</span>
+          <h3 class="card-title">CRYOTHERAPY & PLUNGE</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. INTERACTIVE PHOTO GALLERY -->
+  <section id="gallery" class="gallery-section">
+    <div class="gallery-section-header flex-between">
+      <div class="header-left">
+        <div class="sub-label">
+          <span class="indicator"></span>
+          <span class="label-text">THE ARCHIVES</span>
+        </div>
+        <h2 class="section-heading">PHOTO <span class="text-stroke-accent text-accent">GALLERY.</span></h2>
+      </div>
+
+      <!-- Autoplay Control button -->
+      <button id="galleryAutoplayToggle" class="btn-outline-pill">
+        <i data-lucide="pause" class="icon-accent" id="galleryAutoplayIcon"></i>
+        <span id="galleryAutoplayText">AUTOPLAY: ON</span>
+      </button>
+    </div>
+
+    <!-- Main Viewport and Thumbnails Split Layout -->
+    <div class="gallery-viewport-split">
+      
+      <!-- Main Visual Viewport -->
+      <div class="gallery-main-view" id="mainGalleryTrigger">
+        <div class="gallery-large-frame" id="openLightboxBtn">
+          <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=800" alt="Active athletic session" id="mainGalleryImage">
+          <div class="viewport-gradient"></div>
+          
+          <div class="lightbox-hover-icon">
+            <i data-lucide="maximize-2"></i>
+          </div>
+
+          <div class="gallery-metadata-overlay">
+            <div class="meta-texts">
+              <span class="meta-cat" id="galleryMetaCat">ATHLETIC PERFORMANCE</span>
+              <h3 class="meta-title" id="galleryMetaTitle">HIGH-INTENSITY RUNNING</h3>
+            </div>
+            <div class="meta-counter">
+              <span class="curr-val" id="galleryMetaCurrent">01</span> / <span class="total-val">10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls & Preview Sidebar -->
+      <div class="gallery-sidebar">
+        <div class="sidebar-top">
+          <span class="sidebar-label">NAVIGATION</span>
+          <p class="sidebar-desc">Click thumbnails below, scroll up/down, or use side arrows to experience our high-performance facility in high definition.</p>
+          <div class="nav-arrow-btns">
+            <button class="nav-circle-btn" id="prevGalleryBtn" aria-label="Previous gallery image">
+              <i data-lucide="chevron-left"></i>
+            </button>
+            <button class="nav-circle-btn" id="nextGalleryBtn" aria-label="Next gallery image">
+              <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Previews Thumbnail Grid container -->
+        <div class="sidebar-bottom">
+          <span class="sidebar-label">PREVIEWS</span>
+          <div class="thumbnails-scroll-grid" id="galleryThumbnailsScroll">
+            <!-- Dynamically populated previews or hardcoded static previews -->
+            <button class="thumb-preview active" data-index="0">
+              <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=200" alt="Preview 1">
+            </button>
+            <button class="thumb-preview" data-index="1">
+              <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=200" alt="Preview 2">
+            </button>
+            <button class="thumb-preview" data-index="2">
+              <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=200" alt="Preview 3">
+            </button>
+            <button class="thumb-preview" data-index="3">
+              <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=200" alt="Preview 4">
+            </button>
+            <button class="thumb-preview" data-index="4">
+              <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&q=80&w=200" alt="Preview 5">
+            </button>
+            <button class="thumb-preview" data-index="5">
+              <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=200" alt="Preview 6">
+            </button>
+            <button class="thumb-preview" data-index="6">
+              <img src="https://images.unsplash.com/photo-1605296867304-46d5465a25f1?auto=format&fit=crop&q=80&w=200" alt="Preview 7">
+            </button>
+            <button class="thumb-preview" data-index="7">
+              <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&q=80&w=200" alt="Preview 8">
+            </button>
+            <button class="thumb-preview" data-index="8">
+              <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&q=80&w=200" alt="Preview 9">
+            </button>
+            <button class="thumb-preview" data-index="9">
+              <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=200" alt="Preview 10">
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Fullscreen Image Lightbox Overlay -->
+  <div id="lightbox" class="lightbox-overlay">
+    <div class="lightbox-header">
+      <div class="lightbox-info">
+        IRON DISTRICT GALLERY // <span id="lightboxCurrent">01</span> OF 10
+      </div>
+      <button class="close-lightbox-btn" id="closeLightboxBtn" aria-label="Close lightbox">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+
+    <div class="lightbox-viewport">
+      <button class="lightbox-nav-btn prev" id="prevLightboxBtn" aria-label="Previous image">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      
+      <div class="lightbox-image-container">
+        <img src="" alt="Active Lightbox View" id="lightboxActiveImage">
+      </div>
+
+      <button class="lightbox-nav-btn next" id="nextLightboxBtn" aria-label="Next image">
+        <i data-lucide="chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="lightbox-footer">
+      <span class="lightbox-cat" id="lightboxMetaCat">ATHLETIC PERFORMANCE</span>
+      <h4 class="lightbox-title" id="lightboxMetaTitle">HIGH-INTENSITY RUNNING</h4>
+    </div>
+  </div>
+
+  <!-- 8. COACHES SECTION -->
+  <section id="coaches" class="coaches-section">
+    <div class="coaches-container">
+      <div class="coaches-header max-width-xl">
+        <div class="sub-label">
+          <span class="indicator"></span>
+          <span class="label-text">THE ARCHITECTS</span>
+        </div>
+        <h2 class="section-heading">MEET THE PEOPLE WHO <span class="text-stroke-accent text-accent">PUSH YOU FURTHER.</span></h2>
+        <p class="coaches-desc-text">
+          Our elite coaching staff isn't here to hold your hand—they are here to construct your peak physical form with strict attention to detail and zero compromises.
+        </p>
+      </div>
+
+      <div class="coaches-grid" id="coachesGrid">
+        <!-- Coach 1 -->
+        <div class="coach-card">
+          <div class="coach-image-frame">
+            <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&q=80&w=600" alt="Alex Morgan Strength Coach">
+            <div class="coach-socials">
+              <a href="#" class="social-circle-btn"><i data-lucide="instagram"></i></a>
+              <a href="#" class="social-circle-btn"><i data-lucide="youtube"></i></a>
+              <a href="#" class="social-circle-btn"><i data-lucide="facebook"></i></a>
+            </div>
+          </div>
+          <div class="coach-info">
+            <div class="coach-title-row">
+              <h3 class="coach-name">Alex Morgan</h3>
+              <span className="coach-badge">STRENGTH</span>
+            </div>
+            <div class="coach-role">Strength Coach</div>
+            <p class="coach-bio">Former competitive powerlifter. 10+ years coaching elite strength athletes and beginners.</p>
+          </div>
+          <div class="coach-corner-bracket"></div>
+        </div>
+
+        <!-- Coach 2 -->
+        <div class="coach-card">
+          <div class="coach-image-frame">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600" alt="Daniel Carter Performance Coach">
+            <div class="coach-socials">
+              <a href="#" class="social-circle-btn"><i data-lucide="instagram"></i></a>
+              <a href="#" class="social-circle-btn"><i data-lucide="youtube"></i></a>
+              <a href="#" class="social-circle-btn"><i data-lucide="facebook"></i></a>
+            </div>
+          </div>
+          <div class="coach-info">
+            <div class="coach-title-row">
+              <h3 class="coach-name">Daniel Carter</h3>
+              <span className="coach-badge">PERFORMANCE</span>
+            </div>
+            <div class="coach-role">Performance Coach</div>
+            <p class="coach-bio">Specializes in explosive power, athletic movement, speed, and recovery protocols.</p>
+          </div>
+          <div class="coach-corner-bracket"></div>
+        </div>
+
+        <!-- Coach 3 -->
+        <div class="coach-card">
+          <div class="coach-image-frame">
+            <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?auto=format&fit=crop&q=80&w=600" alt="Maya Lewis Conditioning Coach">
+            <div class="coach-socials">
+              <a href="#" class="social-circle-btn"><i data-lucide="instagram"></i></a>
+              <a href="#" class="social-circle-btn"><i data-lucide="youtube"></i></a>
+              <a href="#" class="social-circle-btn"><i data-lucide="facebook"></i></a>
+            </div>
+          </div>
+          <div class="coach-info">
+            <div class="coach-title-row">
+              <h3 class="coach-name">Maya Lewis</h3>
+              <span className="coach-badge">CONDITIONING</span>
+            </div>
+            <div class="coach-role">Conditioning Coach</div>
+            <p class="coach-bio">HIIT, boxing, and energy systems expert. Dedicated to building bulletproof cardio capacity.</p>
+          </div>
+          <div class="coach-corner-bracket"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. MEMBERSHIP SECTION -->
+  <section id="membership" class="membership-section">
+    <!-- Subtle glow background effect -->
+    <div class="accent-glow"></div>
+
+    <div class="membership-container">
+      <div class="membership-header text-center">
+        <div class="sub-label flex-center">
+          <span class="indicator"></span>
+          <span class="label-text">PRICING BLUEPRINT</span>
+        </div>
+        <h2 class="section-heading">CHOOSE YOUR <span class="text-stroke-accent text-accent">LEVEL.</span></h2>
+        <p class="header-desc text-center margin-center">
+          We don't negotiate on quality. Choose the commitment level that maps directly to your physical and psychological goals.
+        </p>
+      </div>
+
+      <!-- Plans Grid -->
+      <div class="membership-grid" id="membershipGrid">
+        <!-- Plan 1 -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3 class="plan-title">ESSENTIAL</h3>
+            <div class="plan-price-block">
+              <span class="price">₹1,999</span>
+              <span class="period">/ MONTH</span>
+            </div>
+            <p class="taxes-label">TAXES AND INITIATION FEES INCLUDED</p>
+          </div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><i data-lucide="check" class="icon-check"></i> <span>Full Gym Access</span></li>
+            <li><i data-lucide="check" class="icon-check"></i> <span>Locker & Shower Access</span></li>
+            <li><i data-lucide="check" class="icon-check"></i> <span>Complimentary Fitness Assessment</span></li>
+            <li><i data-lucide="check" class="icon-check"></i> <span>Standard Towel Service</span></li>
+          </ul>
+          <div class="plan-footer">
+            <button class="btn-outline" onclick="enrollPlan('ESSENTIAL')">ACQUIRE ACCESS</button>
+          </div>
+        </div>
+
+        <!-- Plan 2 (FEATURED) -->
+        <div class="plan-card featured">
+          <div class="recommended-badge">RECOMMENDED LEVEL</div>
+          <div class="plan-header">
+            <div class="flex-between">
+              <h3 class="plan-title">PERFORMANCE</h3>
+              <span class="pulse-indicator"></span>
+            </div>
+            <div class="plan-price-block">
+              <span class="price text-accent">₹3,999</span>
+              <span class="period">/ MONTH</span>
+            </div>
+            <p class="taxes-label">TAXES AND INITIATION FEES INCLUDED</p>
+          </div>
+          <div class="plan-divider text-accent"></div>
+          <ul class="plan-features">
+            <li><i data-lucide="check" class="icon-check text-accent"></i> <span>Full Gym Access</span></li>
+            <li><i data-lucide="check" class="icon-check text-accent"></i> <span>All Premium Group Classes</span></li>
+            <li><i data-lucide="check" class="icon-check text-accent"></i> <span>Monthly 1-on-1 Coaching Session</span></li>
+            <li><i data-lucide="check" class="icon-check text-accent"></i> <span>Personalized Nutrition Guidance</span></li>
+            <li><i data-lucide="check" class="icon-check text-accent"></i> <span>Priority Locker Bookings</span></li>
+          </ul>
+          <div class="plan-footer">
+            <button class="btn-primary" onclick="enrollPlan('PERFORMANCE')">ACQUIRE ACCESS</button>
+          </div>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3 class="plan-title">ELITE</h3>
+            <div class="plan-price-block">
+              <span class="price">₹7,999</span>
+              <span class="period">/ MONTH</span>
+            </div>
+            <p class="taxes-label">TAXES AND INITIATION FEES INCLUDED</p>
+          </div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><i data-lucide="check" class="icon-check"></i> <span>Unlimited Personal Training</span></li>
+            <li><i data-lucide="check" class="icon-check"></i> <span>Fully Custom Training & Goal Plan</span></li>
+            <li><i data-lucide="check" class="icon-check"></i> <span>Weekly Body Composition Reports</span></li>
+            <li><i data-lucide="check" class="icon-check"></i> <span>Premium Nutrition & Recovery Coaching</span></li>
+            <li><i data-lucide="check" class="icon-check"></i> <span>Priority 24/7 Club Access</span></li>
+            <li><i data-lucide="check" class="icon-check"></i> <span>Private VIP Lounge Access</span></li>
+          </ul>
+          <div class="plan-footer">
+            <button class="btn-outline" onclick="enrollPlan('ELITE')">ACQUIRE ACCESS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="testimonials-container">
+      <div class="flex-center mb-6">
+        <span class="indicator"></span>
+        <span class="label-text text-neutral-500 font-mono">THE VERDICT</span>
+      </div>
+
+      <div class="quote-icon-block">
+        <i data-lucide="quote" class="quote-icon"></i>
+      </div>
+
+      <div class="testimonial-content-wrapper" id="testimonialContent">
+        <span class="testimonial-results-label">THE RESULTS SPEAK.</span>
+        <blockquote class="testimonial-quote">
+          "I stopped looking for motivation and started building discipline. Iron District changed the way I train. The coaching and atmosphere are unmatched anywhere in the city."
+        </blockquote>
+        <div class="testimonial-author-block">
+          <cite class="testimonial-author">ARJUN MEHTA</cite>
+          <span class="testimonial-role">Member since 2024</span>
+        </div>
+      </div>
+
+      <div class="testimonial-controls">
+        <div class="progress-line-container">
+          <div class="progress-line-fill" id="testimonialProgress"></div>
+        </div>
+        
+        <div class="slide-nav-row">
+          <button class="nav-circle-btn" id="prevTestimonialBtn" aria-label="Previous testimonial">
+            <i data-lucide="chevron-left"></i>
+          </button>
+          <span class="testimonial-indicator-num" id="testimonialNum">01 / 03</span>
+          <button class="nav-circle-btn" id="nextTestimonialBtn" aria-label="Next testimonial">
+            <i data-lucide="chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. LOCATION SECTION -->
+  <section id="contact" class="location-blueprint-section">
+    <div class="location-container">
+      
+      <!-- Details left -->
+      <div class="location-details-col" id="locationDetails">
+        <div class="sub-label">
+          <span class="indicator"></span>
+          <span class="label-text">THE HQ</span>
+        </div>
+        <h2 class="section-heading uppercase">
+          YOUR NEW <br>
+          <span class="text-accent text-stroke-accent">TRAINING GROUND.</span>
+        </h2>
+
+        <div class="location-cards-stack">
+          <!-- Card 1 -->
+          <div class="info-card-row">
+            <div class="info-circle-icon"><i data-lucide="map-pin"></i></div>
+            <div class="info-texts">
+              <span class="card-mono-tag">IRON DISTRICT HQ</span>
+              <h4 class="card-bold-label">High Performance Fitness Club</h4>
+              <p class="card-light-desc">123 Performance Avenue, Mumbai, Maharashtra</p>
+            </div>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="info-card-row">
+            <div class="info-circle-icon"><i data-lucide="clock"></i></div>
+            <div class="info-texts">
+              <span class="card-mono-tag">OPERATIONS HOURS</span>
+              <h4 class="card-bold-label">MONDAY — SUNDAY</h4>
+              <p class="card-light-desc">05:00 AM — 11:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4">
+          <button class="btn-primary" onclick="openDirections()">
+            <i data-lucide="navigation" class="icon-inline"></i>
+            <span>GET DIRECTIONS</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Stylized Visual map right -->
+      <div class="location-visual-col" id="locationVisual">
+        <div class="blueprint-visual-card">
+          <!-- Blueprint grid background -->
+          <div class="blueprint-vector-bg">
+            <svg class="blueprint-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+              <defs>
+                <pattern id="grid-static" width="45" height="45" patternUnits="userSpaceOnUse">
+                  <path d="M 45 0 L 0 0 0 45" fill="none" stroke="#222" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid-static)" />
+              <circle cx="50%" cy="50%" r="160" fill="none" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="4,4" />
+              <circle cx="50%" cy="50%" r="90" fill="none" stroke="rgba(204,255,0,0.15)" stroke-width="1.5" />
+              <circle cx="50%" cy="50%" r="4" fill="#ccff00" />
+            </svg>
+          </div>
+
+          <img src="https://images.unsplash.com/photo-1540539234-c14a20fb7c7b?auto=format&fit=crop&q=80&w=1200" alt="Gym internal physical space blueprint overlay" class="blueprint-photo">
+          <div class="blueprint-shade-gradient"></div>
+
+          <div class="blueprint-coords">
+            <div>COORD: 19.0760° N, 72.8777° E</div>
+            <div>ALT: 14M ELEVATION</div>
+          </div>
+
+          <div class="blueprint-pulse-pin">
+            <div class="pulse-ring-outer">
+              <div class="pulse-ring-inner"></div>
+            </div>
+            <div class="blueprint-marker-tag">IRON DISTRICT</div>
+          </div>
+
+          <div class="blueprint-footer-note">
+            <span>WESTERN INgress // MAIN GATEWAY</span>
+            <span>SECURED ENTRY</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 12. FINAL CINEMATIC CTA -->
+  <section id="finalCta" class="cinematic-cta-section">
+    <div class="cta-backdrop-frame">
+      <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=1920" alt="Heavy steel gym plates" id="ctaParallaxBg">
+    </div>
+    <div class="cta-dark-shading"></div>
+
+    <div class="cta-contents text-center">
+      <div class="flex-center gap-3">
+        <span class="indicator animate-pulse"></span>
+        <span class="label-text font-mono text-accent uppercase">THE ULTIMATE CALL</span>
+      </div>
+      <h2 class="section-heading uppercase font-display text-center" id="ctaHeading">
+        YOUR EXCUSES <br>
+        <span class="text-accent text-stroke-accent">END HERE.</span>
+      </h2>
+      <p class="cta-desc max-width-md margin-center">
+        Your next level starts with one decision. Eliminate average. Join the District.
+      </p>
+      <div class="pt-4">
+        <a href="#membership" class="btn-primary btn-large font-extrabold uppercase">JOIN IRON DISTRICT</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Top elements block -->
+      <div class="footer-top-row">
+        <!-- Logo details -->
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            IRON <span class="text-stroke-accent">DISTRICT</span>
+          </a>
+          <p class="footer-brand-p">
+            BUILD YOUR STRONGEST SELF.<br>
+            An elite, high-performance physical culture club. Built with Olympic steel, professional training rigs, and active recovery systems.
+          </p>
+          <div class="footer-social-block">
+            <a href="#" class="social-circle-btn"><i data-lucide="instagram"></i></a>
+            <a href="#" class="social-circle-btn"><i data-lucide="youtube"></i></a>
+            <a href="#" class="social-circle-btn"><i data-lucide="facebook"></i></a>
+          </div>
+        </div>
+
+        <!-- Links blocks -->
+        <div class="footer-links-col">
+          <span class="footer-col-title">NAVIGATION</span>
+          <div class="links-list">
+            <a href="#training" class="footer-link">TRAINING</a>
+            <a href="#programs" class="footer-link">PROGRAMS</a>
+            <a href="#gallery" class="footer-link">GALLERY</a>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <span class="footer-col-title">CLUB SERVICES</span>
+          <div class="links-list">
+            <a href="#coaches" class="footer-link">COACHES</a>
+            <a href="#membership" class="footer-link">MEMBERSHIP</a>
+            <a href="#contact" class="footer-link">CONTACT</a>
+          </div>
+        </div>
+
+        <!-- Newsletter block -->
+        <div class="footer-newsletter-col">
+          <span class="footer-col-title">THE INTEL NEWSLETTER</span>
+          <p class="newsletter-p">Receive biomechanical guidance, nutritional reports, and updates regarding exclusive district camps.</p>
+          
+          <form class="newsletter-input-box" id="newsletterForm">
+            <input type="email" placeholder="YOUR EMAIL" required class="newsletter-input uppercase">
+            <button type="submit" class="newsletter-submit-btn" aria-label="Subscribe to newsletter">
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Divider line -->
+      <div class="footer-line"></div>
+
+      <!-- Bottom trademark block -->
+      <div class="footer-bottom-row">
+        <span class="copyright">© 2026 IRON DISTRICT. ALL RIGHTS RESERVED.</span>
+        <div class="footer-bottom-links">
+          <a href="#" class="bottom-link">PRIVACY CODE</a>
+          <a href="#" class="bottom-link">LIABILITY CLAUSE</a>
+          <a href="#" class="bottom-link">DEVELOPER PORTAL</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Standalone Vanilla JS Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>
